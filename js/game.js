@@ -4,7 +4,7 @@ define(['shared', 'wee'], function (shared, Wee) {
 	var b2 = shared.b2
 	,   CANVAS_WIDTH = shared.canvas.width
 	,   CANVAS_HEIGHT = shared.canvas.height
-	,   SCALE = 20
+	,   SCALE = 30
 	;
 
     var world = new b2.World(
@@ -32,12 +32,12 @@ define(['shared', 'wee'], function (shared, Wee) {
 	world.CreateBody(bodyDef).CreateFixture(fixDef);
 
 	bodyDef.type = b2.Body.b2_dynamicBody;
-	for(var i = 0; i < 10; ++i) {
+	for(var i = 0; i < 50; ++i) {
 		if(Math.random() > 0.5) {
 			fixDef.shape = new b2.PolygonShape;
 			fixDef.shape.SetAsBox(
-				Math.random() + 0.1 //half width
-			,  Math.random() + 0.1 //half height
+				Math.random() + 0.2, //half width
+				Math.random() + 0.2 //half height
 			);
 		} else {
 			fixDef.shape = new b2.CircleShape(
@@ -61,11 +61,11 @@ define(['shared', 'wee'], function (shared, Wee) {
 
 
 	function update() {
-	world.Step(
-		1 / 60   //frame-rate
-		,  10       //velocity iterations
-		,  10       //position iterations
-	);
+		world.Step(
+			1 / 60   //frame-rate
+			,  10       //velocity iterations
+			,  10       //position iterations
+		);
  		world.DrawDebugData();
 		world.ClearForces();
 		

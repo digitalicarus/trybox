@@ -36,8 +36,8 @@ define(['box2d', 'aug'], function (b2, aug) {
 					}
 
 					if (match.test(i)) {
-                        tmp = (replace) ? i.replace(replaceWhat, replaceWith) : i;
-                        juicyChildren[tmp] = obj[i];
+						tmp = (replace) ? i.replace(replaceWhat, replaceWith) : i;
+						juicyChildren[tmp] = obj[i];
 					}
 				}
 			}
@@ -58,15 +58,17 @@ define(['box2d', 'aug'], function (b2, aug) {
 		return getJuicyObject(obj);
 	}
 
+	canvas.width = 640;
+	canvas.height = 300;
 	body.appendChild(canvas);
 	
-    return {
-        Box2D:      Box2D,
+	return {
+		Box2D:      Box2D,
 		b2:         flatter(Box2D, b2ClassRegex, b2ClassRegex, ''),
 		aug:        aug,
 		canvas:     canvas,
 		flatter:    flatter,
 		isEmptyObj: isEmptyObj,
 		ctx:        ctx
-    };
+	};
 });
