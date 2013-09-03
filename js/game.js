@@ -7,9 +7,9 @@ define(['shared', 'wee'], function (shared, Wee) {
 	,   SCALE = 30
 	;
 
-    var world = new b2.World(
-    	new b2.Vec2(0, 10),
-    	true
+	var world = new b2.World(
+		new b2.Vec2(0, 10),
+		true
 	);
 
 	var fixDef = new b2.FixtureDef;
@@ -49,7 +49,7 @@ define(['shared', 'wee'], function (shared, Wee) {
 		world.CreateBody(bodyDef).CreateFixture(fixDef);
 	}
 
-    //setup debug draw
+	//setup debug draw
 	var debugDraw = new b2.DebugDraw();
 	debugDraw.SetSprite(shared.ctx);
 	debugDraw.SetDrawScale(SCALE);
@@ -66,7 +66,7 @@ define(['shared', 'wee'], function (shared, Wee) {
 			,  10       //velocity iterations
 			,  10       //position iterations
 		);
- 		world.DrawDebugData();
+		world.DrawDebugData();
 		world.ClearForces();
 		
 	}; // update()
